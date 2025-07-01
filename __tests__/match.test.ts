@@ -12,7 +12,14 @@ describe("Match", () => {
 
   it("should create a Match instance with initial scores 0 and not finished", () => {
     const match = new Match(homeTeam, awayTeam);
+
     expect(match.homeTeam).toBe(homeTeam);
     expect(match.awayTeam).toBe(awayTeam);
+    expect(match.homeTeamScore).toBe(0);
+    expect(match.awayTeamScore).toBe(0);
+    expect(match.startTime).toBeNull();
+    expect(match.finishTime).toBeNull();
+    expect(match.isFinished).toBe(false);
   });
+
 });
