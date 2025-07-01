@@ -12,6 +12,19 @@ export class ScoreBoard {
     }
   }
 
+  updateMatch(
+    homeTeam: string,
+    awayTeam: string,
+    homeScore: number,
+    awayScore: number
+  ) {
+    const key = homeTeam + "-" + awayTeam;
+    const match = this.#matches[key];
+
+    if (!match) throw new Error("Already finished");
+
+    match.updateScore(homeScore, awayScore);
+  }
 
   sortMatches(): Match[] {
     const inProgressMatcheList = Object.values(this.#matches).filter(
