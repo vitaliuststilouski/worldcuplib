@@ -54,4 +54,13 @@ describe("Match", () => {
       "Cannot update score after the game is finished"
     );
   });
+
+  it("should finish the game, setting finishTime and isFinished", () => {
+    const match = new Match(homeTeam, awayTeam);
+    match.startGame();
+    match.finishGame();
+
+    expect(match.finishTime).toBeInstanceOf(Date);
+    expect(match.isFinished).toBe(true);
+  });
 });
