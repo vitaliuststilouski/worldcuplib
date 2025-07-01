@@ -31,4 +31,13 @@ describe("Match", () => {
     expect(match.isFinished).toBe(false);
   });
 
+  it("should update the scores", () => {
+    const match = new Match(homeTeam, awayTeam);
+    match.updateScore(3, 2);
+
+    expect(match.homeTeamScore).toBe(3);
+    expect(match.awayTeamScore).toBe(2);
+  });
+
+  
 });

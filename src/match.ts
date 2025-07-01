@@ -31,5 +31,16 @@ export class Match {
     this.startOrder = Match.startCounter;
     this.isFinished = false;
   }
+  updateScore(homeTeamScore: number, awayTeamScore: number) {
+    if (this.isFinished) {
+      throw new Error("Cannot update score after the game is finished");
+    }
 
+    if (homeTeamScore < 0 || awayTeamScore < 0) {
+      throw new Error("Scores cannot be negative");
+    }
+
+    this.homeTeamScore = homeTeamScore;
+    this.awayTeamScore = awayTeamScore;
+  }
 }
