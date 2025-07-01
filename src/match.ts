@@ -43,4 +43,9 @@ export class Match {
     this.homeTeamScore = homeTeamScore;
     this.awayTeamScore = awayTeamScore;
   }
+
+  finishGame() {
+    this.finishTime = new Date();
+    this.isFinished = true;
+  }
 }
