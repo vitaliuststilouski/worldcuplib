@@ -15,6 +15,7 @@ describe("ScoreBoard", () => {
 
   it("should add and start a match", () => {
     board.addMatch(match1);
+    expect(board.sortMatches()).toContain(match1);
     expect(match1.startTime).not.toBeNull();
   });
 });
