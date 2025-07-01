@@ -26,6 +26,17 @@ export class ScoreBoard {
     match.updateScore(homeScore, awayScore);
   }
 
+  finishMatch(homeTeam: string, awayTeam: string) {
+    const key = homeTeam + "-" + awayTeam;
+    const match = this.#matches[key];
+
+    if (!match) throw new Error("Match not found");
+    if (match.isFinished) throw new Error("Already finished");
+
+    match.finishGame();
+    delete this.#matches[key];
+  }
+
   sortMatches(): Match[] {
     const inProgressMatcheList = Object.values(this.#matches).filter(
       (m) => !m.isFinished
