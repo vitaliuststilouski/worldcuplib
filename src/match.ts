@@ -25,4 +25,11 @@ export class Match {
     this.isFinished = false;
   }
 
+  startGame() {
+    this.startTime = new Date();
+    Match.startCounter++;
+    this.startOrder = Match.startCounter;
+    this.isFinished = false;
+  }
+
 }

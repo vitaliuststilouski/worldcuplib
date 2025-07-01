@@ -22,4 +22,13 @@ describe("Match", () => {
     expect(match.isFinished).toBe(false);
   });
 
+  it("should start the game, setting startTime, startOrder, and isFinished", () => {
+    const match = new Match(homeTeam, awayTeam);
+    match.startGame();
+
+    expect(match.startTime).toBeInstanceOf(Date);
+    expect(match.startOrder).toBeGreaterThan(0);
+    expect(match.isFinished).toBe(false);
+  });
+
 });
