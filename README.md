@@ -95,3 +95,9 @@ Output
 5. Germany 2 - France 2
 
 ```
+
+##Notes
+```
+It is just a simple library,
+Such things as adding country, current time, stadium, coefficient will can be added later
+```
