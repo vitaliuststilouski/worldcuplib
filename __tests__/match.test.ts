@@ -39,5 +39,19 @@ describe("Match", () => {
     expect(match.awayTeamScore).toBe(2);
   });
 
-  
+  it("updateScore should throw if scores are negative", () => {
+    const match = new Match(homeTeam, awayTeam);
+    expect(() => match.updateScore(-1, 2)).toThrow();
+    expect(() => match.updateScore(1, -5)).toThrow();
+  });
+
+  it("should not update score after game is finished", () => {
+    const match = new Match(homeTeam, awayTeam);
+    match.startGame();
+    match.finishGame();
+
+    expect(() => match.updateScore(2, 2)).toThrow(
+      "Cannot update score after the game is finished"
+    );
+  });
 });
