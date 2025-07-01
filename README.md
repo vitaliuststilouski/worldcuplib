@@ -35,18 +35,22 @@ This guide explains how to create matches, add them to a scoreboard, update scor
 
 ## 1. Create a new ScoreBoard instance
 
-```javascript
+```
 const board = new ScoreBoard();
-
+```
 2. Initialize matches with teams
 
+```
 const match1 = new Match(new Team("Mexico"), new Team("Canada"));
 const match2 = new Match(new Team("Spain"), new Team("Brazil"));
 const match3 = new Match(new Team("Germany"), new Team("France"));
 const match4 = new Match(new Team("Uruguay"), new Team("Italy"));
 const match5 = new Match(new Team("Argentina"), new Team("Australia"));
+```
 
 3. Add matches to the scoreboard and update their scores
+
+```
 board.addMatch(match1);
 board.updateMatch("Mexico", "Canada", 0, 5);
 
@@ -61,11 +65,17 @@ board.updateMatch("Uruguay", "Italy", 6, 6);
 
 board.addMatch(match5);
 board.updateMatch("Argentina", "Australia", 3, 1);
+```
+
 
 4. Sort the matches
+```
 const summary = board.sortMatches();
+```
 
 5. Display the sorted scoreboard on a webpage
+
+```
 const container = document.getElementById("scoreboard");
 
 summary.forEach((match, index) => {
@@ -73,6 +83,10 @@ summary.forEach((match, index) => {
   div.textContent = `${index + 1}. ${match.homeTeam.name} ${match.homeTeamScore} - ${match.awayTeam.name} ${match.awayTeamScore}`;
   container?.appendChild(div);
 });
+```
+
+Output
+```
 
 1. Uruguay 6 - Italy 6
 2. Spain 10 - Brazil 2
